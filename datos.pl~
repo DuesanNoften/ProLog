@@ -9,38 +9,38 @@ menu(lujos_de_mar_de_plata, [argentina,[asado, choripan, milanesa]]).
 menu(dolce_far_niente, [postres, [gelato, tiramisu, cannoli]]).
 menu(tres_pinos, [helado, [cono_sencillo, cono_doble, canasta]]).
 
-direccion(tagliatela, san_pedro).
-direccion(kfg, perez_zeledon).
-direccion(manchis, oriental).
-direccion(casita_frita, occidental).
-direccion(upway, carmen).
-direccion(fajitabell, san_nicolas).
-direccion(cuina_de_laporta, guadalupe).
-direccion(lujos_de_mar_de_plata, tres_rios).
-direccion(dolce_far_niente, turrialba).
-direccion(tres_pinos, el_tejar).
+direccion(tagliatela).
+direccion(kfg).
+direccion(manchis).
+direccion(casita_frita).
+direccion(upway).
+direccion(fajitabell).
+direccion(cuina_de_laporta).
+direccion(lujos_de_mar_de_plata).
+direccion(dolce_far_niente).
+direccion(tres_pinos).
 
-capacidad(tagliatela, 10).
-capacidad(kfg, 20).
-capacidad(manchis, 15).
-capacidad(casita_frita, 15).
-capacidad(upway, 20).
-capacidad(fajitabell, 10).
-capacidad(cuina_de_laporta, 10).
-capacidad(lujos_de_mar_de_plata, 15).
-capacidad(dolce_far_niente, 20).
-capacidad(tres_pinos, 20).
+capacidad(tagliatela).
+capacidad(kfg).
+capacidad(manchis).
+capacidad(casita_frita).
+capacidad(upway).
+capacidad(fajitabell).
+capacidad(cuina_de_laporta).
+capacidad(lujos_de_mar_de_plata).
+capacidad(dolce_far_niente).
+capacidad(tres_pinos).
 
-disposiciones(tagliatela, traje_formal).
-disposiciones(kfg, pago_en_efectivo).
-disposiciones(manchis, pago_solamente_en_tarjeta).
-disposiciones(casita_frita, pago_en_efectivo).
-disposiciones(upway, llevar_mascarilla).
-disposiciones(fajitabell, pago_en_tarjeta).
-disposiciones(cuina_de_laporta, traje_formal).
-disposiciones(lujos_de_mar_de_plata, utilizar_mascarilla).
-disposiciones(dolce_far_niente, pago_en_efectivo).
-disposiciones(tres_pinos, solamente_para_llevar).
+disposiciones(tagliatela).
+disposiciones(kfg).
+disposiciones(manchis).
+disposiciones(casita_frita).
+disposiciones(upway).
+disposiciones(fajitabell).
+disposiciones(cuina_de_laporta).
+disposiciones(lujos_de_mar_de_plata).
+disposiciones(dolce_far_niente).
+disposiciones(tres_pinos).
 
 verbos().
 
