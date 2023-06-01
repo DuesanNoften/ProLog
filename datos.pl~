@@ -4,7 +4,7 @@ menu(manchis, [hamburgesas, [sencilla, doble_torta, pollo]]).
 menu(casita_frita, [empanadas,[pollo, carne, fijol, arreglada]]).
 menu(upway,[sandiwch, [jamon, pollo, res]]).
 menu(fajitabell, [mexicano, [tacos, burritos, quesadillas]]).
-menu(cuina_de_laporta, [española,[paella, gambas, calots]]).
+menu(cuina_de_laporta, [espanola,[paella, gambas, calots]]).
 menu(lujos_de_mar_de_plata, [argentina,[asado, choripan, milanesa]]).
 menu(dolce_far_niente, [postres, [gelato, tiramisu, cannoli]]).
 menu(tres_pinos, [helado, [cono_sencillo, cono_doble, canasta]]).
@@ -196,6 +196,15 @@ sujetos(usted).
 
 sustantivos().
 
+oracion(S0,S):- sintagma_nominal(S0,S1),
+    sintagma_verbal(S1,S).
 
+sintagma_nominal(S0,S):- determinante(S0,S1),
+    nombre(S1,S).
+
+sintagma_verbal(S0,S):-verbo(S0,S).
+
+sintagma_verbal(S0,S):-verbo(S0,S1),
+    nombre(S1,S).
 
 
