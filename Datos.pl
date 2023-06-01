@@ -204,18 +204,24 @@ sujetos([ellas|S],S).
 sujetos([nosotros|S],S).
 sujetos([nosotras|S],S).
 sujetos([usted|S],S).
+sujetos([josue|S],S).
+sujetos([isa|S],S).
+sujetos([jordy|S],S).
 
 sustantivos().
+
+determinante([el|S],S).
+determinante([la|S],S).
 
 oracion(S0,S):- sintagma_nominal(S0,S1),
     sintagma_verbal(S1,S).
 
 sintagma_nominal(S0,S):- determinante(S0,S1),
-    nombre(S1,S).
+    sujetos(S1,S).
 
-sintagma_verbal(S0,S):-verbo(S0,S).
+sintagma_verbal(S0,S):-verbos(S0,S).
 
-sintagma_verbal(S0,S):-verbo(S0,S1),
-    nombre(S1,S).
+sintagma_verbal(S0,S):-verbos(S0,S1),
+    sujetos(S1,S).
 
 
