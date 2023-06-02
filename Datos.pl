@@ -224,4 +224,26 @@ sintagma_verbal(S0,S):-verbos(S0,S).
 sintagma_verbal(S0,S):-verbos(S0,S1),
     sujetos(S1,S).
 
+restauranTec():-presentacion().
 
+presentacion():-write("Hola bienvenido a RestauranTec, aqui le ayudaremos a encontar el restaurante que se ajuste a sus gustos.\n"), main.
+
+main:-write("Para empezar, ¿podría indicarme que tipo de comida desea? \n"), read_line_to_string(user_input,Linea),split_string(Linea," ","",Frase),oracion(Frase,[]), palabra_clave(Frase,_).
+
+tipo_comida(X):-write("Desea algun tipo de "),write(X),write(" ?"), read_line_to_string(user_input, Linea),split_string(Linea," ","",Frase),oracion(Frase,[]), palabra_clave(Frase,_).
+
+tipo_comida:-write("Entendido").
+
+localizacion():-write("Perfecto, ¿desea buscar restaurantes en un area especifica?"), read(X), X = si,write("\nMuy bien, ¿en que area desea buscar restaurantes? \n"),read_line_to_string(user_input, Linea), split_string(Linea," ","",Frase),oracion(Frase,[]), palabra_clave(Frase,_).
+
+localizacion():-write("Muy bien, buscare entre todos los restaurantes que tenemos registrados entonces").
+
+grupo():-write("¿Cuantas personas van con usted? \n"), read_line_to_string(user_input, Linea), split_string(Linea," ","",Frase),oracion(Frase,[]), palabra_clave(Frase,_).
+
+%recomendar(X,Y,Z):- .
+
+palabra_clave([X|_],X):-direccion(P,X), write(P).
+palabra_clave([X|_],X):-capacidad(P,X), write(P).
+palabra_clave([X|_],X):-menu(P,X), write(P).
+palabra_clave([X|_],X):-comida(P,H), member(X,H), write(P).
+palabra_clave([_|X],Direccion):-palabra_clave(X,Direccion).
