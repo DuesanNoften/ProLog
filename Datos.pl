@@ -1,249 +1,415 @@
-menu(tagliatela, italiano).
-menu(kfg, alitas_de_pollo).
-menu(manchis, hamburgesas).
-menu(casita_frita, empanadas).
-menu(upway, sandiwch).
-menu(fajitabell, mexicana).
-menu(cuina_de_laporta, espanola).
-menu(lujos_de_mar_de_plata, argentina).
-menu(dolce_far_niente, postres).
-menu(tres_pinos, helado).
+%=======================  Restaurantes  =========================%
+%restaurante("Nombre del restaurante").
+restaurante("Bella Italia").
+restaurante("Italianisimo").
+restaurante("McBurguesa").
+restaurante("KFG").
+restaurante("Casita del Bocata").
+restaurante("Upway").
+restaurante("Burritobell").
+restaurante("Tacos de mi Tia Panchita").
+restaurante("Dolche far Niente").
+restaurante("Tres Pinos").
 
-comida(italiano, [spaguetti, pizza, calzone]).
-comida(alitas_de_pollo, [bbq, buffalo, rach]).
-comida(hamburgesas, [sencilla, doble_torta, pollo]).
-comida(empanadas,[pollo, carne, fijol, arreglada]).
-comida(sandiwch, [jamon, pollo, res]).
-comida(mexicana, [tacos, burritos, quesadillas]).
-comida(espanola,[paella, gambas, calots]).
-comida(argentina,[asado, choripan, milanesa]).
-comida(postres, [gelato, tiramisu, cannoli]).
-comida(helado, [cono_sencillo, cono_doble, canasta]).
+%=======================  Disposiciones  =========================%
+%disposiciones("Restaurante", "Disposicion").
+disposiciones("Bella Italia",  "Solo se permiten burbujas y durante la espera se debe utilizar mascarilla").
+disposiciones("Italianisimo", "Utilizar mascarilla").
+disposiciones("McBurguesa", "Solo se permiten burbujas").
+disposiciones("KFG",  "Pago solamente en efectivo").
+disposiciones("Casita del Bocata", "Si desea un asciento debera reservarlo").
+disposiciones("Upway", "Pago solamente en tarjeta").
+disposiciones("Burritobell",  "Si desea salsas debe pedirlas en el mostrador").
+disposiciones("Tacos de mi Tia Panchita", "Utilizar mascarilla").
+disposiciones("Dolche far Niente", "No se permiten mascotas").
+disposiciones("Tres Pinos", "No se permite tarjeta, solo simpemovil").
 
-direccion(tagliatela, san_pedro).
-direccion(kfg, perez_zeledon).
-direccion(manchis, oriental).
-direccion(casita_frita, occidental).
-direccion(upway, carmen).
-direccion(fajitabell, san_nicolas).
-direccion(cuina_de_laporta, guadalupe).
-direccion(lujos_de_mar_de_plata, tres_rios).
-direccion(dolce_far_niente, turrialba).
-direccion(tres_pinos, el_tejar).
+%=======================  Menus  =========================%
+%menu("Nombre", "Tipo de menu", "[Comida |[Tipos especificos]]").
+menu("Bella Italia", "italiano", ["Pizza", ["jamon y queso", "suprema", "hawaiana"], "calzone", "espagueti"]).
+menu("Italianisimo","italiano" ,["Pizza", ["pepperoni"], "calzone", "espagueti"]).
+menu("McBurguesa","Comida Rapida" ,["hamburguesas", "tacos ", "papas"]).
+menu("KFG", "Comida Rapida" ,["pollo", "nuggets ", "alitas"]).
+menu("Casita del Bocata", "Sandwich", ["pavo", "pollo", "pato"]).
+menu("Upway", "Sandwich", ["cerdo", "res", "queso"]).
+menu("Burritobell",  "Mexicana", ["burrito", "tacos", "enchiladas"]).
+menu("Tacos de mi Tia Panchita", "Mexicana",["burrito", "tacos", "enchiladas"]).
+menu("Dolche far Niente", "Postres", ["gelato", "tiramisu", "cannoli"]).
+menu("Tres Pinos", "Postres", ["cono sencillo", "cono doble", "cono arreglado"]).
 
-capacidad(tagliatela, 10).
-capacidad(kfg, 20).
-capacidad(manchis, 15).
-capacidad(casita_frita, 15).
-capacidad(upway, 20).
-capacidad(fajitabell, 10).
-capacidad(cuina_de_laporta, 10).
-capacidad(lujos_de_mar_de_plata, 15).
-capacidad(dolce_far_niente, 20).
-capacidad(tres_pinos, 20).
+%=======================  Pizzas =========================%
+%pizza("Nombre del restaurante", "[Tipos especificos]").
+pizza("Bella Italia", ["jamon y queso", "suprema", "hawaiana"]).
+pizza("Italianisimo", ["pepperoni"]).
+%pizza("Restaurante 1", "Restaurante 2").
+pizza("Italianisimo","Bella Italia").
 
-disposiciones(tagliatela, traje_formal).
-disposiciones(kfg, pago_en_efectivo).
-disposiciones(manchis, pago_solamente_en_tarjeta).
-disposiciones(casita_frita, pago_en_efectivo).
-disposiciones(upway, llevar_mascarilla).
-disposiciones(fajitabell, pago_en_tarjeta).
-disposiciones(cuina_de_laporta, traje_formal).
-disposiciones(lujos_de_mar_de_plata, utilizar_mascarilla).
-disposiciones(dolce_far_niente, pago_en_efectivo).
-disposiciones(tres_pinos, solamente_para_llevar).
+%=======================  Comida Rapida =========================%
+%comidarapida("Nombre del restaurante", "[Tipos especificos]").
+comidarapida("McBurguesa",["hamburguesas", "tacos", "papas"]).
+comidarapida("KFG",["pollo", "nuggets", "alitas"]).
+%comidarapida("Restaurante 1", "Restaurante 2").
+comidarapida("McBurguesa","KFG").
 
-verbos().
+%======================= Sandwich  =========================%
+%sandwich("Nombre del restaurante", "[Tipos especificos]").
+sandwich("Casita del Bocata",["pavo", "pollo", "pato"]).
+sandwich("Upway",["cerdo", "res", "queso"]).
+%sandwich("Restaurante 1", "Restaurante 2").
+sandwich("Casita del Bocata", "Upway").
 
-verbos([pedir|S],S).
-verbos([pido|S],S).
-verbos([pides|S],S).
-verbos([pide|S],S).
-verbos([pedimos|S],S).
-verbos([piden|S],S).
+%======================= Mexicana =========================%
+%mexicana("Nombre del restaurante", "[Tipos especificos]").
+mexicana("Burritobell",["burrito", "tacos", "enchiladas"]).
+mexicana("Tacos de mi Tia Panchita",["burrito", "tacos", "enchiladas"]).
+%mexicana("Restaurante 1", "Restaurante 2").
+mexicana("Burritobell","Tacos de mi Tia Panchita").
 
-verbos([ordenar|S],S).
-verbos([ordenas|S],S).
-verbos([ordeno|S],S).
-verbos([ordena|S],S).
-verbos([ordenamos|S],S).
-verbos([ordenan|S],S).
+%======================= Postres =========================%
+%postres("Nombre del restaurante", "[Tipos especificos]").
+postres("Dolche far Niente",["gelato", "tiramisu", "cannoli"]).
+postres("Tres Pinos",["cono sencillo", "cono doble", "cono arreglado"]).
+%postres("Restaurante 1", "Restaurante 2").
+postres("Dolche far Niente", "Tres Pinos").
 
-verbos([probar|S],S).
-verbos([pruebo|S],S).
-verbos([pruebas|S],S).
-verbos([prueba|S],S).
-verbos([probamos|S],S).
-verbos([prueban|S],S).
+%=======================  Direcciones =========================%
+% direccion("Nombre del restaurante", "Direccion").
+direccion("Bella Italia", "300m Sur de la entrada principal de la Universidad Nacional" ).
+direccion("Italianisimo", "50m Sur de la entrada Banco de Costa Rica" ).
+direccion("McBurguesa", "100m Norte de la entrada principal del TEC" ).
+direccion("KFG", "Dentro del Oxigeno").
+direccion("Casita del Bocata", "50m Oeste de las Ruinas").
+direccion("Upway", "Frente al Mercado Central").
+direccion("Burritobell", "400m Este del Banco Central").
+direccion("Tacos de mi Tia Panchita", "Continuo al Paseo de las Flores").
+direccion("Dolche far Niente", "Costado norte de la basilica").
+direccion("Tres Pinos", "Dentro de Multiplaza Escazu").
 
-verbos([recomendar|S],S).
-verbos([recomiendo|S],S).
-verbos([recomiendas|S],S).
-verbos([recomienda|S],S).
-verbos([recomendamos|S],S).
-verbos([recomiendan|S],S).
+%=======================  Lugares  =========================%
+% lugar("Nombre del restaurante", "Lugar donde se ubica").
+lugar("Bella Italia", "Heredia").
+lugar("Italianisimo", "Alajuela").
+lugar("McBurguesa", "Cartago").
+lugar("KFG", "Alajuela").
+lugar("Casita del Bocata", "Cartago").
+lugar("Upway", "San Jose").
+lugar("Burritobell", "San Jose").
+lugar("Tacos de mi Tia Panchita", "Heredia").
+lugar("Dolche far Niente", "Cartago").
+lugar("Tres Pinos", "San Jose").
 
-verbos([degustar|S],S).
-verbos([degusto|S],S).
-verbos([degustas|S],S).
-verbos([degusta|S],S).
-verbos([degustamos|S],S).
-verbos([degustan|S],S).
+%=======================  Capacidad  =========================%
+% capacidad("Nombre del restaurante", Capacidad maxima).
+capacidad("Bella Italia", 10).
+capacidad("Italianisimo", 5).
+capacidad("McBurguesa", 20).
+capacidad("KFG", 30).
+capacidad("Casita del Bocata",25).
+capacidad("Upway", 40).
+capacidad("Burritobell", 25).
+capacidad("Tacos de mi Tia Panchita", 10).
+capacidad("Dolche far Niente",30).
+capacidad("Tres Pinos", 30).
 
-verbos([comprar|S],S).
-verbos([compro|S],S).
-verbos([compras|S],S).
-verbos([compra|S],S).
-verbos([compramos|S],S).
-verbos([compran|S],S).
+%=======================  BNF  ===============================%
+%=======================  ALIMENTOS  =========================%
+%alimento(Oracion, Oracion preliminar, Palabra(s) clave).
+alimento(S0,S,Claves):-
+    pronombre(Num,S0,S1),
+    sintagma_verbal(Num,Estado,S1,S2),
+    sintagma_nominal(_Gen2,Num,Estado,S2,S, Claves).
+alimento(S0,S, Claves):-
+    sintagma_verbal(Num,Estado,S0,S1),
+    sintagma_nominal(_Gen2,Num,Estado,S1,S, Claves).
+alimento(S0,S, Claves):-
+    sintagma_nominal(_Gen2,_,_,S0,S, Claves).
+alimento(_S0,_S,_Claves):-
+    write("Lo sentimos, no se conoce ningun restaurante con ese tipo de comida"),
+    nl, nl,
+    restaurantec_loop().
 
-verbos([explorar|S],S).
-verbos([exploro|S],S).
-verbos([exploras|S],S).
-verbos([explora|S],S).
-verbos([exploramos|S],S).
-verbos([exploran|S],S).
+%======================  UBICACIONES  =======================%
+% ubicacion(Oracion, Oracion preliminar, Palabra(s) clave).
+ubicacion(S0,S,S1):-
+    preposicion(S0,S1),
+    lugares(_,S).
+ubicacion(S0,S,S0):-
+    lugares(_,S).
 
-verbos([consultar|S],S).
-verbos([consulto|S],S).
-verbos([consultas|S],S).
-verbos([consulta|S],S).
-verbos([consultamos|S],S).
-verbos([consultan|S],S).
+%==================  CANTIDAD DE PERSONAS  ==================%
+% personas(Oracion, Oracion preliminar, Palabra(s) clave).
+personas(S0,S,S1):-
+    preposicion(S0,[S1|_]),
+    cantidad(_,S2),
+    person(S2,S).
+personas(S0,S,S1):-
+    preposicion(S0,S1),
+    cantidad(_,S).
+personas(S0,S,S0):-
+    cantidad(_,S1),
+    person(S1,S).
+personas(S0,S,S0):-
+    cantidad(_,S).
 
-verbos([desear|S],S).
-verbos([deseo|S],S).
-verbos([deseas|S],S).
-verbos([desea|S],S).
-verbos([deseamos|S],S).
-verbos([desean|S],S).
+%=======================  SINTAGMAS =========================%
+% sintagma_nominal(Genero, Numero, Estado, Oracion preliminar,
+% Oracion,Palabra clave).
+sintagma_nominal(Gen,Num,Estado,S0,S, S1):-
+    determinante(Gen,Num,S0,S1),
+    nombre(Gen,Num,Estado,S1,S2),
+    adjetivo(Gen,Num,S2,S).
+sintagma_nominal(Gen,Num,Estado,S0,S, S1):-
+    nombre(Gen,Num,Estado,S0,S1),
+    adjetivo(Gen,Num,S1,S).
+sintagma_nominal(Gen,Num,Estado,S0,S, S1):-
+    determinante(Gen,Num,S0,S1),
+    nombre(Gen,Num,Estado,S1,S).
+sintagma_nominal(Gen,Num,Estado,S0,S, S0):-
+    nombre(Gen,Num,Estado,S0,S).
+% sintagma_verbal(Genero, Numero, Estado, Oracion preliminar,
+% Oracion,Palabra clave).
+sintagma_verbal(Num,_Estado,S0,S):-verbo(Num,S0,S).
+sintagma_verbal(Num,Estado,S0,S):-
+    verbo(Num,S0,S1),
+    infinitivo(Estado,S1,S).
 
-verbos([viajar|S],S).
-verbos([viajo|S],S).
-verbos([viajas|S],S).
-verbos([viaja|S],S).
-verbos([viajamos|S],S).
-verbos([viajan|S],S).
+%=======================  NOMINAL =========================%
+%determinante(Genero, Numero, Determinante, Oracion).
+determinante(femenino, singular, [una|S],S).
+determinante(femenino, plural, [unas|S],S).
+determinante(masculino, singular, [un|S],S).
+determinante(masculino, plural, [unos|S],S).
+determinante(masculino, singular, [el|S],S).
+determinante(femenino, singular, [la|S],S).
+determinante(masculino, plural, [los|S],S).
+determinante(femenino, plural, [las|S],S).
 
-verbos([encargar|S],S).
-verbos([encargo|S],S).
-verbos([encargas|S],S).
-verbos([encarga|S],S).
-verbos([encargamos|S],S).
-verbos([encargan|S],S).
+%pronombre(Numero, Pronombre, Oracion).
+pronombre(singular,[yo|S],S).
+pronombre(singular,[josue|S],S).
+pronombre(singular,[isa|S],S).
+pronombre(singular,[jordy|S],S).
+pronombre(singular,[usted|S],S).
+pronombre(singular,[el|S],S).
+pronombre(singular,[ella|S],S).
+pronombre(singular,[ellos|S],S).
+pronombre(singular,[ellas|S],S).
+pronombre(singular,[nosotros|S],S).
+pronombre(singular,[nosotras|S],S).
+pronombre(singular,[tu|S],S).
+%adjetivo(Genero, Numero, adjetivo, Oracion).
+adjetivo(femenino,singular,[rapida|S],S).
+%nombre(Genero, Nomero, Estado,  Nombre, Oracion).
+nombre(masculino, singular, solido, [italiano|S],S).
+nombre(masculino, _, solido, [tacos|S],S).
+nombre(masculino, singular, solido, [calzone|S],S).
+nombre(masculino, singular, solido, [espagueti|S],S).
+nombre(femenino, singular, solido, [pizza|S],S).
+nombre(femenino, _, solido, [papas|S],S).
+nombre(femenino, _, solido, [hamburguesas|S],S).
+nombre(femenino, singular, solido, [comida|S],S).
+nombre(femenino, singular, liquido, [bebida|S],S).
+nombre(masculino, singular, solido, [sandwich|S],S).
+nombre(masculino, singular, solido, [pollo|S],S).
+nombre(masculino,_, solido, [nuggets|S],S).
+nombre(femenino, _, solido, [alitas|S],S).
+nombre(femenina, singular, solido, [pechuga|S],S).
+nombre(masculino, singular, solido, [pavo|S],S).
+nombre(masculino, singular, solido, [pato|S],S).
+nombre(femenino,_, solido, [enchiladas|S],S).
+nombre(masculino, singular, liquido, [cerdo|S],S).
+nombre(masculino, singular, solido, [res|S],S).
+nombre(masculino, singular, solido, [queso|S],S).
+nombre(femenina, singular, solido, [mexicana|S],S).
+nombre(masculino, singular, solido, [pozole|S],S).
+nombre(masculino, singular, solido, [burrito|S],S).
+nombre(masculino, _, solido, [postres|S],S).
+nombre(masculino, singular, solido, [gelato|S],S).
+nombre(masculino, singular, solido, [tiramisu|S],S).
+nombre(masculino, singular, liquido, [cannoli|S],S).
+nombre(masculino, singular, solido, [cono_arreglado|S],S).
+nombre(masculino, singular, solido, [cono_sencillo|S],S).
+nombre(masculino, singular, liquido, [cono_doble|S],S).
+%lugares(_, Oracion). Admite cualquier lugar
+lugares([_|S],S).
+%person(personas, Oracion).
+person([personas|S],S).
+%cantidad(_, Oracion). Admite cualquier cantidad
+cantidad([_|S],S).
 
-verbos([tomar|S],S).
-verbos([tomo|S],S).
-verbos([tomas|S],S).
-verbos([toma|S],S).
-verbos([tomamos|S],S).
-verbos([toman|S],S).
+%=======================  VERBAL =========================%
+% verbo(Numero, Verbo, Oracion).
+verbo(singular,[quiero|S],S).
+verbo(singular,[deseo|S],S).
+%infinitivo(Estado,  Infinitivo, Oracion).
+infinitivo(solido, [comer|S],S).
+infinitivo(liquido, [tomar|S],S).
+%preposici�n(Preposicion Oracion).
+preposicion([en|S],S).
+preposicion([para|S],S).
 
-verbos([disfrutar|S],S).
-verbos([disfruto|S],S).
-verbos([disfrutas|S],S).
-verbos([disfruta|S],S).
-verbos([disfrutamos|S],S).
-verbos([disfrutan|S],S).
+%=====================  PARSEAR INPUT =======================%
+%Caso base
+parseInput([],[]).
 
-verbos([saborear|S],S).
-verbos([saboreo|S],S).
-verbos([saboreas|S],S).
-verbos([saborea|S],S).
-verbos([saboreamos|S],S).
-verbos([saborean|S],S).
+%Se hace una lista de las palabras ingresadas por el usuario como átomos
+parseInput([C|InputList], [A|Result]):-
+    atom_string(A,C),
+    parseInput(InputList,Result).
+%Entradas: Input es la entrada de texto del usuario
+%Salidas: R sera la entrada en formato analizable
+getInput(Input,R):-
+    split_string(Input," ",".",R1),
+    parseInput(R1,R).
 
-verbos([experimentar|S],S).
-verbos([experimento|S],S).
-verbos([experimentas|S],S).
-verbos([experimenta|S],S).
-verbos([experimentamos|S],S).
-verbos([experimentan|S],S).
+%======================  DELIMITANTES ========================%
+% Revisa si un elemento pertenece a una lista
+% Sintaxis: miembro(elemento, lista).
+% Entradas: elemento, lista.
+% Salidas: Booleano indicando si el elemento pertenece a la lista o no
+miembro(X, [X|_]).
+miembro(X, [_|R]):-miembro(X,R).
 
-verbos([indicar|S],S).
-verbos([indico|S],S).
-verbos([indicas|S],S).
-verbos([indica|S],S).
-verbos([indicamos|S],S).
-verbos([indican|S],S).
+%Validar tipo de menu italiano
+validaralimento(Y, X):-
+    Y == [italiano],
+    write("¿Que tipo de comida Italiana quiere comer?"), nl,
+    read(T),
+    getInput(T,Tparsed),
+    alimento(Tparsed,[],AlimentoClave),
+    validaralimento(AlimentoClave,X).
+%Validar el resto del menu
+validaralimento([Y|_], X):-
+    %Ver si el tipo de comida que escribe coincide con el menu de algun
+    %restaurante, P sera el lugar clave como string
+    atom_string(Y, P),
+    menu(X,_,B), miembro(P, B), nl.
+validaralimento(Y, X):-
+    Y == [pizza],
+    write("¿Algun tipo de pizza especial?"),nl,
+    read(L),
+    pizza(X,B), miembro(L, B), nl.
+validaralimento(Y, X):-
+    Y == [sandwich],
+    write("¿Algun tipo de pizza especial?"),nl,
+    read(L),
+    sandwich(X,B), miembro(L, B), nl.
+validaralimento(Y, X):-
+    Y == [mexicana],
+    write("¿Algun tipo de comida mexicana en especifico?"),nl,
+    read(L),mexicana(X,B), miembro(L, B), nl.
+validaralimento(Y, X):-
+    Y == [postres],
+    write("¿Algun tipo de postre en especial?"),nl,
+    read(L),
+    postres(X,B), miembro(L, B), nl.
+validaralimento(Y, X):-
+    miembro(rapida, Y),
+    write("¿Que tipo de comida rapida?"),nl,
+    read(L),
+    %Ver si el tipo de comida que escribe coincide con la lista de comida rapida
+    comidarapida(X,B), miembro(L, B), nl.
+validaralimento(_K,_Y):-
+    write("Lo sentimos, no se conoce algun restaurante con ese tipo especifico
+    de alimentacion"), nl, nl,
+    restaurantec_loop().
+% Valida si el lugar indicado por el usuario coincide con donde se
+% Sintaxis: validarlugar(restaurante, lugar). Se utiliza como:
+% validarlugar(rest, lugar), dando los dos argumentos para que retorne
+% un booleano.
+% Entrada: restaurante, lugar.
+% Salida: Booleano indicando si el restaurante y lugar coinciden
+% Restricciones: Se deben dar los dos argumentos para que funcione.
+validarlugar(K, Y):-
+    lugar(K, Y), !.
+validarlugar(_K,_Y):-
+    write("Lo sentimos, no se conoce ningun restaurante con sus preferencias en
+    ese lugar"), nl, nl,
+    restaurantec_loop().
+% Valida si la cantidad de personas es menor o igual a la
+% disponible en el restaurante.
+% Sintaxis: validarcapacidad(rest, capacidad).
+% Entrada: restaurante, capacidad -> dada por el usuario
+% Salida: Booleano indicando si la capacidad solicitada se satisface o
+% no.
+% Restricciones: Se deben dar los dos argumentos para que funcione
 
-verbos([buscar|S],S).
-verbos([busco|S],S).
-verbos([buscas|S],S).
-verbos([busca|S],S).
-verbos([buscamos|S],S).
-verbos([buscan|S],S).
+validarcapacidad(K, Y):-
+    capacidad(K, T), T >= Y.
 
-verbos([localizar|S],S).
-verbos([localizo|S],S).
-verbos([localizas|S],S).
-verbos([localiza|S],S).
-verbos([localizamos|S],S).
-verbos([localizan|S],S).
+validarcapacidad(_K,_Y):-
+    write("Lo sentimos, no se conoce ningun restaurante con sus preferencias con
+    esa capacidad"), nl, nl,
+    restaurantec_loop().
 
-verbos([averiguar|S],S).
-verbos([averiguo|S],S).
-verbos([averiguas|S],S).
-verbos([averiguamos|S],S).
-verbos([averiguan|S],S).
-verbos([averigua|S],S).
+%====================== Checks  ============================%
+check_alimento(K):-
+%Este fragmento busca si lo que se desea comer se haya disponible en
+%algun restaurante
+    write("¿Qué desea comer?"), nl,
+    read(InputAlimento),
+    getInput(InputAlimento,InputAlimentoParseado),
+    alimento(InputAlimentoParseado,[],AlimentoClave),
+    validaralimento(AlimentoClave, K).
+check_ubicacion(K):-
+    %Este fragmento revisa que los posibles restaurantes
+    %se encuentren en el area indicada
+    write("¿Donde se te antoja comer?"), nl,
+    read(InputLugar),
+    getInput(InputLugar,InputLugarParseado),
+    ubicacion(InputLugarParseado,[],[LugarClave|_]),
+    atom_string(LugarClave, P),
+    validarlugar(K, P).
+check_cantidad(K):-
+    %Este fragmento compara la cantidad de personas indicadas
+    %por el usuario con la capacidad del restaurante
+    write("¿Para cuantas personas seria la reservacion?"), nl,
+    read(InputPersonas),
+    getInput(InputPersonas,InputPersonasParseado),
+    personas(InputPersonasParseado,[],[PersonasClave|_]),
+    atom_number(PersonasClave, V),
+    validarcapacidad(K, V).
 
-verbos([informar|S],S).
-verbos([informo|S],S).
-verbos([informas|S],S).
-verbos([informa|S],S).
-verbos([informamos|S],S).
-verbos([informan|S],S).
 
-sujetos([yo|S],S).
-sujetos([tu|S],S).
-sujetos([el|S],S).
-sujetos([ella|S],S).
-sujetos([ellos|S],S).
-sujetos([ellas|S],S).
-sujetos([nosotros|S],S).
-sujetos([nosotras|S],S).
-sujetos([usted|S],S).
-sujetos([josue|S],S).
-sujetos([isa|S],S).
-sujetos([jordy|S],S).
+%======================  Interfaz   ========================%
+% Funcion principal que hace las preguntas al usuario
+restaurantec:-
+    write("Hola, se comunica con restaurantec, el lugar donde nosotros le recomendamos en base a sus preferencias"),nl,
+    restaurantec_loop().
 
-sustantivos().
+restaurantec_loop():-
+    check_alimento(K),
+    check_ubicacion(K),
+    check_cantidad(K),
+    %K es el nombre del restaurante y S su direccion
+    direccion(K,S),
+    atom_concat("Nuestra sugerencia es: Restaurante ", K, O1),
+    atom_concat(O1, " que se ubica ", O2),
+    atom_concat(O2, S, O3),
 
-determinante([el|S],S).
-determinante([la|S],S).
+    %O3 es la frase completa de la recomendacion
+    write(O3), nl,
 
-oracion(S0,S):- sintagma_nominal(S0,S1),
-    sintagma_verbal(S1,S).
+    %D son las disposiciones de los restaurantes
+    disposiciones(K, D),
+    write(D),nl, nl,
 
-sintagma_nominal(S0,S):- determinante(S0,S1),
-    sujetos(S1,S).
+    write("Tiene alguna otra consulta?"),nl,
+    read(Ans), (Ans="si"->restaurantec_loop();!).
+    %Se llama recursivamente por si el usuario quiere volver a consultar.
 
-sintagma_verbal(S0,S):-verbos(S0,S).
 
-sintagma_verbal(S0,S):-verbos(S0,S1),
-    sujetos(S1,S).
+restaurantec_loop():-
+    write("Muchas gracias por usar nuestros servicios").
 
-restauranTec():-presentacion().
 
-presentacion():-write("Hola bienvenido a RestauranTec, aqui le ayudaremos a encontar el restaurante que se ajuste a sus gustos.\n"), main.
 
-main:-write("Para empezar, ¿podría indicarme que tipo de comida desea? \n"), read_line_to_string(user_input,Linea),split_string(Linea," ","",Frase),oracion(Frase,[]), palabra_clave(Frase,_).
 
-tipo_comida(X):-write("Desea algun tipo de "),write(X),write(" ?"), read_line_to_string(user_input, Linea),split_string(Linea," ","",Frase),oracion(Frase,[]), palabra_clave(Frase,_).
 
-tipo_comida:-write("Entendido").
 
-localizacion():-write("Perfecto, ¿desea buscar restaurantes en un area especifica?"), read(X), X = si,write("\nMuy bien, ¿en que area desea buscar restaurantes? \n"),read_line_to_string(user_input, Linea), split_string(Linea," ","",Frase),oracion(Frase,[]), palabra_clave(Frase,_).
 
-localizacion():-write("Muy bien, buscare entre todos los restaurantes que tenemos registrados entonces").
 
-grupo():-write("¿Cuantas personas van con usted? \n"), read_line_to_string(user_input, Linea), split_string(Linea," ","",Frase),oracion(Frase,[]), palabra_clave(Frase,_).
 
-%recomendar(X,Y,Z):- .
 
-palabra_clave([X|_],X):-direccion(P,X), write(P).
-palabra_clave([X|_],X):-capacidad(P,X), write(P).
-palabra_clave([X|_],X):-menu(P,X), write(P).
-palabra_clave([X|_],X):-comida(P,H), member(X,H), write(P).
-palabra_clave([_|X],Direccion):-palabra_clave(X,Direccion).
+
+
