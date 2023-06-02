@@ -240,11 +240,76 @@ cantidad([_|S],S).
 %=======================  VERBAL =========================%
 % verbo(Numero, Verbo, Oracion).
 verbo(singular,[quiero|S],S).
+verbo(singular, [quiere|S],S).
+verbo(singular, [quieres|S],S).
+verbo(plural, [queremos|S],S).
+verbo(plural, [quieren|S],S).
 verbo(singular,[deseo|S],S).
+verbo(singular, [desea|S],S).
+verbo(singular, [deseas|S],S).
+verbo(plural, [deseamos|S],S).
+verbo(plural, [desean|S],S).
+verbo(singular, [ordeno|S],S).
+verbo(singular, [pido|S],S).
+verbo(singular, [pides|S],S).
+verbo(singular, [pide|S],S).
+verbo(plural, [pedimos|S],S).
+verbo(plural, [piden|S],S).
+verbo(singular, [ordenas|S],S).
+verbo(singular, [ordeno|S],S).
+verbo(singular, [ordena|S],S).
+verbo(plural, [ordenamos|S],S).
+verbo(plural, [ordenan|S],S).
+verbo(singular, [pruebo|S],S).
+verbo(singular, [prueba|S],S).
+verbo(singular, [pruebas|S],S).
+verbo(plural, [probamos|S],S).
+verbo(plural, [prueban|S],S).
+verbo(singular, [recomiendo|S],S).
+verbo(singular, [recomiendas|S],S).
+verbo(singular, [recomienda|S],S).
+verbo(plural, [recomendamos|S],S).
+verbo(plural, [recomiendan|S],S).
+verbo(singular, [como|S],S).
+verbo(singular, [come|S],S).
+verbo(singular, [comes|S],S).
+verbo(plural, [comemos|S],S).
+verbo(plural, [comen|S],S).
+verbo(singular, [tomo|S],S).
+verbo(singular, [toma|S],S).
+verbo(singular, [tomas|S],S).
+verbo(plural, [tomamos|S],S).
+verbo(plural, [toman|S],S).
+verbo(singular, [viajo|S],S).
+verbo(singular, [viaja|S],S).
+verbo(singular, [viajas|S],S).
+verbo(plural, [viajamos|S],S).
+verbo(plural, [viajan|S],S).
+verbo(singular, [busco|S],S).
+verbo(singular, [busca|S],S).
+verbo(singular, [buscas|S],S).
+verbo(plural, [buscamos|S],S).
+verbo(plural, [buscan|S],S).
 %infinitivo(Estado,  Infinitivo, Oracion).
 infinitivo(solido, [comer|S],S).
 infinitivo(liquido, [tomar|S],S).
-%preposici�n(Preposicion Oracion).
+infinitivo(solido, [pedir|S],S).
+infinitivo(liquido, [pedir|S],S).
+infinitivo(solido, [ordenar|S], S).
+infinitivo(liquido, [ordenar|S],S).
+infinitivo(solido, [probar|S], S).
+infinitivo(liquido, [probar|S],S).
+infinitivo(solido, [recomendar|S], S).
+infinitivo(liquido, [recomenadar|S],S).
+infinitivo(solido, [desear|S], S).
+infinitivo(liquido, [desear|S],S).
+infinitivo(solido, [querer|S], S).
+infinitivo(liquido, [querer|S],S).
+infinitivo(solido, [viajar|S], S).
+infinitivo(liquido, [viajar|S],S).
+infinitivo(solido, [buscar|S], S).
+infinitivo(liquido, [buscarr|S],S).
+%preposicion(Preposicion Oracion).
 preposicion([en|S],S).
 preposicion([para|S],S).
 

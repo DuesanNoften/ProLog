@@ -123,7 +123,6 @@ alimento(S0,S, Claves):-
     sintagma_nominal(_Gen2,Num,Estado,S1,S, Claves).
 alimento(S0,S, Claves):-
     sintagma_nominal(_Gen2,_,_,S0,S, Claves).
-alimento(S0,_,_):-sintagma_nominal(S0).
 alimento(_S0,_S,_Claves):-
     write("Lo sentimos, no se conoce ningun restaurante con ese tipo de comida"),
     nl, nl,
@@ -151,8 +150,6 @@ personas(S0,S,S0):-
     person(S1,S).
 personas(S0,S,S0):-
     cantidad(_,S).
-personas(S0,_,_):-
-    negacion(S0).
 
 %=======================  SINTAGMAS =========================%
 % sintagma_nominal(Genero, Numero, Estado, Oracion preliminar,
@@ -169,7 +166,6 @@ sintagma_nominal(Gen,Num,Estado,S0,S, S1):-
     nombre(Gen,Num,Estado,S1,S).
 sintagma_nominal(Gen,Num,Estado,S0,S, S0):-
     nombre(Gen,Num,Estado,S0,S).
-sintagma_nominal(S0):- negacion(S0).
 % sintagma_verbal(Genero, Numero, Estado, Oracion preliminar,
 % Oracion,Palabra clave).
 sintagma_verbal(Num,_Estado,S0,S):-verbo(Num,S0,S).
@@ -187,8 +183,7 @@ determinante(masculino, singular, [el|S],S).
 determinante(femenino, singular, [la|S],S).
 determinante(masculino, plural, [los|S],S).
 determinante(femenino, plural, [las|S],S).
-%negacion(no).
-negacion(no).
+
 %pronombre(Numero, Pronombre, Oracion).
 pronombre(singular,[yo|S],S).
 pronombre(singular,[josue|S],S).
@@ -400,9 +395,9 @@ restaurantec_loop():-
     write(D),nl, nl,
 
     write("Tiene alguna otra consulta?"),nl,
-    read(Ans), Ans="si",
-    %Se llama recursivamente por si el usuario quiere volver a consultar
-    restaurantec_loop().
+    read(Ans), (Ans="si"->restaurantec_loop();!).
+    %Se llama recursivamente por si el usuario quiere volver a consultar.
+
 
 restaurantec_loop():-
     write("Muchas gracias por usar nuestros servicios").
